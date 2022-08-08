@@ -1,4 +1,6 @@
 specVersion: 0.0.4
+description: Subgraph for Colors.wtf project
+repository: https://github.com/0x7B5/colors.wtf-subgraph
 schema:
   file: schema.graphql
 dataSources:
