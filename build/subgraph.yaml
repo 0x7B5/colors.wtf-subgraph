@@ -1,0 +1,29 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Token
+    network: rinkeby
+    source:
+      address: "0xCD8cB95E5bE5ef3107188bc76dA0f41DA2938967"
+      abi: Token
+      startBlock: 11043947
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - User
+      abis:
+        - name: Token
+          file: Token/abis/Token.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: ColorCreated(address,uint256,uint256,string)
+          handler: handleColorCreated
+      file: Token/Token.wasm
+features:
+  - fullTextSearch
